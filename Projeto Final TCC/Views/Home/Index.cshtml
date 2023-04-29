@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home"></span> Página Inicial</a></li>
+                    <li><a href="@Url.Action("About", "Home")"><span class="glyphicon glyphicon-user"></span> Cadastro</a></li>
+                    <li><a href="@Url.Action("About",  "Home")"><span class="glyphicon glyphicon-headphones"></span> Suporte</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id="mapDiv" style="width: 1200px; height: 600px"></div>
+    <script>
+
+        // latitude e longitude
+        var lat = -23.55;
+        var lon = -46.63;
+        // inicializa o mapa
+        map = L.map('mapDiv').setView([lat, lon], 13);
+
+        // define os recursos para exibição
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.macoratti.net/">Macoratti.net</a>',
+            maxZoom: 18,
+        }).addTo(map);
+
+        // adiciona um marcador no mapa
+        marker = L.marker([lat, lon]).addTo(map);
+
+        // adiciona um popup no marcador
+        marker.bindPopup("<b>Centro</b><br />Pça da Sé<br />São Paulo").openPopup();
+
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="jumbotron" style="background-color: whitesmoke;">
+        <h1>Xenarthra</h1>
+        <p>
+            Bem-vindo ao nosso site de catálogo de animais Xenarthra!
+        </p>
+        <br>
+        <p>
+            Xenarthra é uma ordem de mamíferos que inclui animais fascinantes como tatus, preguiças e tamanduás.
+            Eles são encontrados principalmente na América do Sul e Central, e são conhecidos por suas características únicas,
+            como garras afiadas, pelos grossos e hábitos alimentares especializados.
+        </p>
+        <br>
+        <p>
+            Em nosso site, você encontrará um catálogo completo de animais Xenarthra, com informações detalhadas sobre cada espécie,
+            incluindo sua aparência, comportamento, habitat e muito mais. Nós trabalhamos incansavelmente para fornecer informações precisas e
+            atualizadas sobre essas criaturas incríveis, para que você possa aprender mais sobre elas e apreciá-las ainda mais.
+        </p>
+
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="background-color: whitesmoke;" >
+                <h2>Sobre nós</h2>
+                <p>Nós somos uma equipe disposta a ajudar hoje a biologia </p>
+                <ul>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2>Novidades</h2>
+                <p>Esta seção mostra algumas novidades da aplicação:</p>
+                <ul>
+                    <li>----</li>
+                    <li>----</li>
+                    <li>----</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2>Contato</h2>
+                <p>Entre em contato conosco!:</p>
+                <form>
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" class="form-control" id="nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea class="form-control" id="mensagem" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
+        </footer>
+    </div>
+
+
+</body>
+</html>
