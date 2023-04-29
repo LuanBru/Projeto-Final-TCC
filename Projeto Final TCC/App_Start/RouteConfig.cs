@@ -18,6 +18,7 @@ namespace Projeto_Final_TCC
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+       
         }
     }
 }

@@ -1,17 +1,90 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<br>
+<br>
+<body>
+    <div class="jumbotron jumbotron-fluid" style="background-color: rgba(85, 169, 76, 0.9)">
+        <div class="container-fluid">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <img src="~/Content/Images/tatu.png" alt="Logo" class="img-responsive center-block">
+                <br>
+                <br>
+                <div class="btn-group" role="group" aria-label="Opções">
+                    <button type="button" class="btn btn-primary btn-outline-dark btn-lg" onclick="window.location.href='/login'">Login</button>
+                    <button type="button" class="btn btn-dark btn btn-outline-dark btn-lg" data-toggle="modal" data-target="#cadastroModal">Cadastro</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+    <div class="modal fade" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="cadastroModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cadastroModalLabel">Cadastro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("Cadastro", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+                        <div class="form-group">
+                            <label for="Nome">Nome:</label>
+                            <input type="text" class="form-control" id="Nome" name="Nome" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Email">E-mail:</label>
+                            <input type="email" class="form-control" id="Email" name="Email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Senha">Senha:</label>
+                            <input type="password" class="form-control" id="Senha" name="Senha" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ConfirmaSenha">Confirme a senha:</label>
+                            <input type="password" class="form-control" id="ConfirmaSenha" name="ConfirmaSenha" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="IdBiologo">ID Biólogo:</label>
+                            <input type="checkbox" id="IdBiologo" name="IdBiologo">
+                        </div>
+
+                        <div class="form-group" id="divIdBiologo" style="display:none;">
+                            <label for="IdBiologoValor">Informe o valor do ID Biólogo:</label>
+                            <input type="text" class="form-control" id="IdBiologoValor" name="IdBiologoValor">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section scripts {
+    <script>
+        $(function () {
+            $('#IdBiologo').change(function () {
+                if (this.checked) {
+                    $('#divIdBiologo').show();
+                    $('#IdBiologoValor').attr('required', true);
+                } else {
+                    $('#divIdBiologo').hide();
+                    $('#IdBiologoValor').attr('required', false);
+                }
+            });
+        });
+    </script>
+}
