@@ -9,28 +9,24 @@ namespace Projeto_Final_TCC.Controllers
 {
     public class CadastroController : Controller
     {
-        [HttpGet]
-        public ActionResult Cadastro()
+        public ActionResult Index()
         {
-            return View(new Usuario());
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(Usuario model)
+        public ActionResult Cadastrar(Usuario usuario)
         {
-            if (model.V_Biologo && string.IsNullOrEmpty(model.ID_Bio))
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError(nameof(model.ID_Bio), "O ID do biólogo é obrigatório.");
+                // Lógica para salvar o usuário no banco de dados
+                // (Você pode usar um ORM como Entity Framework ou Dapper)
+
+                return RedirectToAction("Index", "Home");
             }
 
-            if (!ModelState.IsValid)
-            {
-                return View("Cadastro", model);
-            }
-
-            // Aqui você pode inserir a lógica para salvar os dados do cadastro no banco de dados.
-
-            return RedirectToAction("Index", "Home");
+            return View(usuario);
         }
     }
-    }
+}
+        
