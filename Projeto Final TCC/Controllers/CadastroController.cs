@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static Projeto_Final_TCC.Models.Fotos;
 
 namespace Projeto_Final_TCC.Controllers
 {
@@ -20,6 +21,10 @@ namespace Projeto_Final_TCC.Controllers
             if (ModelState.IsValid)
             {
                 // Lógica para salvar o usuário no banco de dados
+
+                DTB1.Usuarios.Add(usuario);
+                DTB1.SaveChanges();
+
                 // (Você pode usar um ORM como Entity Framework ou Dapper)
 
                 return RedirectToAction("Index", "Home");
