@@ -8,6 +8,11 @@ namespace Projeto_Final_TCC.Controllers
 {
     public class HomeController : Controller
     {
+        private static string ApiKey = "yJUnCCy336Gn9KNW7DEDcAyTZ1Z8t0gqiy623oNi";
+        private static string AuthEmail = "";
+        private static string AuthPassword = "";
+        private static string Bucket = "gs://asp-mvc-with-android.appspot.com";
+
         public ActionResult Index()
         {
             return View();
