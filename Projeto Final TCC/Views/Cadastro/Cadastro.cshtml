@@ -1,0 +1,47 @@
+﻿@model Projeto_Final_TCC.Models.Usuario
+
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+@using (Html.BeginForm("RealizarCadastro", "Cadastro", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome)
+        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Nome)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Senha)
+        @Html.PasswordFor(model => model.Senha, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Senha)
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+    </div>
+}
+
+@section scripts {
+    <script>
+        $(function () {
+            $('input[name="IsBiologo"]').change(function () {
+                if ($(this).is(':checked')) {
+                    $('#biologo-section').show();
+                } else {
+                    $('#biologo-section').hide();
+                }
+            });
+        });
+    </script>
+}
+

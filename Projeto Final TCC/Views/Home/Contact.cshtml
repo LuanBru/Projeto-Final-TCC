@@ -5,6 +5,8 @@
 }
 <br>
 <br>
+
+<!-- Tela Inicial Cadastro/Login -->
 <body>
     <div class="jumbotron jumbotron-fluid" style="background-color: rgba(85, 169, 76, 1.0)">
         <div class="container-fluid">
@@ -20,6 +22,7 @@
         </div>
     </div>
 
+    <!-- Cadastro -->
     <div class="modal fade" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="cadastroModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -29,25 +32,41 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    @using (Html.BeginForm("Cadastro", "Cadastrar", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
+                @using (Html.BeginForm("RealizarCadastro", "Cadastro", FormMethod.Post))
+                {
+                    @Html.ValidationSummary(true)
 
-                        <Entry Placeholder="Novo Email" x:Name="Email"></Entry>
-                        <Entry Placeholder="Nova senha" x:Name="Senha"></Entry>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Nome)
+                        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Nome)
+                    </div>
 
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email)
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
 
-                        <Button BackgroundColor="Black" TextColor="LightGreen" Text="CADASTRO" Clicked="cadastrobtn_Clicked" x:Name="cadastrobtn" CornerRadius="10" />
-                    }
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Senha)
+                        @Html.PasswordFor(model => model.Senha, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Senha)
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                    </div>
+                }
+            </div>
+            <!-- Fechar -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>
 
+    <!-- LLogin -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -58,23 +77,26 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                    @using (Html.BeginForm("RealizarLogin", "Login", FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
 
                         <div class="form-group">
-                            <label for="Username">E-Mail:</label>
-                            <input type="text" class="form-control" id="Email" name="Email" required>
+                            @Html.LabelFor(model => model.Email)
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Email)
                         </div>
 
                         <div class="form-group">
-                            <label for="Password">Senha:</label>
-                            <input type="password" class="form-control" id="Senha" name="Senha" required>
+                            @Html.LabelFor(model => model.Senha)
+                            @Html.PasswordFor(model => model.Senha, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Senha)
                         </div>
 
                         <button type="submit" class="btn btn-primary">Login</button>
                     }
                 </div>
+                <!-- Fechar -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                 </div>
@@ -82,21 +104,8 @@
         </div>
     </div>
 </body>
+
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-@section scripts {
-    <script>
-        $(function () {
-            $('#IdBiologo').change(function () {
-                if (this.checked) {
-                    $('#divIdBiologo').show();
-                    $('#IdBiologoValor').attr('required', true);
-                } else {
-                    $('#divIdBiologo').hide();
-                    $('#IdBiologoValor').attr('required', false);
-                }
-            });
-        });
-    </script>
-}
