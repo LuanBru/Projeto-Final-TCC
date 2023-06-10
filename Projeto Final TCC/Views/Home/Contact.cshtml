@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Projeto_Final_TCC.Models.Usuario
+
+@{
     ViewBag.Title = "Contact";
 }
 <br>
@@ -28,41 +30,15 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    @using (Html.BeginForm("Cadastro", "Home", FormMethod.Post))
+                    @using (Html.BeginForm("Cadastro", "Cadastrar", FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
 
-                        <div class="form-group">
-                            <label for="Nome">Nome:</label>
-                            <input type="text" class="form-control" id="Nome" name="Nome" required>
-                        </div>
+                        <Entry Placeholder="Novo Email" x:Name="Email"></Entry>
+                        <Entry Placeholder="Nova senha" x:Name="Senha"></Entry>
 
-                        <div class="form-group">
-                            <label for="Email">E-mail:</label>
-                            <input type="email" class="form-control" id="Email" name="Email" required>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="Senha">Senha:</label>
-                            <input type="password" class="form-control" id="Senha" name="Senha" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="ConfirmaSenha">Confirme a senha:</label>
-                            <input type="password" class="form-control" id="ConfirmaSenha" name="ConfirmaSenha" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="IdBiologo">ID Biólogo:</label>
-                            <input type="checkbox" id="IdBiologo" name="IdBiologo">
-                        </div>
-
-                        <div class="form-group" id="divIdBiologo" style="display:none;">
-                            <label for="IdBiologoValor">Informe o valor do ID Biólogo:</label>
-                            <input type="text" class="form-control" id="IdBiologoValor" name="IdBiologoValor">
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <Button BackgroundColor="Black" TextColor="LightGreen" Text="CADASTRO" Clicked="cadastrobtn_Clicked" x:Name="cadastrobtn" CornerRadius="10" />
                     }
                 </div>
                 <div class="modal-footer">
@@ -71,42 +47,44 @@
             </div>
         </div>
     </div>
-    
+
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-                {
-                    @Html.AntiForgeryToken()
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
 
-                    <div class="form-group">
-                        <label for="Username">E-Mail:</label>
-                        <input type="text" class="form-control" id="Email" name="Email" required>
-                    </div>
+                        <div class="form-group">
+                            <label for="Username">E-Mail:</label>
+                            <input type="text" class="form-control" id="Email" name="Email" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="Password">Senha:</label>
-                        <input type="password" class="form-control" id="Senha" name="Senha" required>
-                    </div>
+                        <div class="form-group">
+                            <label for="Password">Senha:</label>
+                            <input type="password" class="form-control" id="Senha" name="Senha" required>
+                        </div>
 
-                    <button type="submit" class="btn btn-primary">Login</button>
-                }
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
             </div>
         </div>
     </div>
-    </div>
 </body>
-
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 @section scripts {
     <script>
         $(function () {

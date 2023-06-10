@@ -18,7 +18,12 @@ namespace Projeto_Final_TCC
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-       
+            routes.MapRoute(
+                name: "Cadastro",
+                url: "Cadastrar/Cadastro",
+                defaults: new { controller = "Cadastrar", action = "Cadastro" }
+            );
+
         }
     }
 }

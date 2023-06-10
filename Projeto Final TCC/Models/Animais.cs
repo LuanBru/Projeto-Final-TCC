@@ -7,8 +7,7 @@ namespace Projeto_Final_TCC.Models
 {
     public class Animais
     {
-        private readonly static string _conn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog = AgenciaAuto; Integrated Security = True; Connect Timeout = 30;
-Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
 
         public int ID_Animal { get; set; }
         public string Esp { get; set; }

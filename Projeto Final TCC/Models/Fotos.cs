@@ -7,19 +7,21 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Projeto_Final_TCC.Models
 {
-    public class Fotos
-    {
-        [Key]
-        public int FotoId { get; set; }
-        public int ID_Usuario { get; set; }
-        public int ID_Animal { get; set; }
-        public string GPS { get; set; }
-        public int ID_Verificado { get; set; }
-        public string OBs { get; set; }
+   public class Fotos
+   {
+      [Key]
+      public int FotoId { get; set; }
+      public int ID_Usuario { get; set; }
+      public int ID_Animal { get; set; }
+      public double Longitude { get; set; }
+      public double Latitude { get; set; }
+      public int ID_Verificado { get; set; }
+      public byte[] Imagem { get; set; }
+      public string OBs { get; set; }
 
-        public class DTB1 : DbContext
-        {
-            public DbSet<Fotos> Foto { get; set; }
-        }
-    }
+      public class DTB1 : DbContext
+      {
+         public DbSet<Fotos> Foto { get; set; }
+      }
+   }
 }
