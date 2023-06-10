@@ -1,0 +1,31 @@
+﻿@model Projeto_Final_TCC.Models.Usuario
+
+<br>
+<br>
+<br>
+<br>
+<br>
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("RealizarLogin", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Senha)
+        @Html.PasswordFor(model => model.Senha, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Senha)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+}

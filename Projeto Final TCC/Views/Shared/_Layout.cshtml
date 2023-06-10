@@ -19,19 +19,33 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
+        <!-- Icones e texto -->
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-left">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <span class="nav-link">Bem-vindo, @Session["UserEmail"]!</span>
+                    <span class="nav-link"><i class="fas fa-user"></i> Bem-vindo, @Session["UserEmail"]!</span>
                 </li>
+                @if (Session["UserEmail"] != null)
+                {
+                    <li class="nav-item">
+                        @Html.ActionLink("Solicitações", "Solicitacoes", "Home", null, new { @class = "nav-link" })
+                    </li>
+                }
+                <!-- Outros itens do navbar -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-
-                <li><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home"></span> Página Inicial</a></li>
-                <li><a href="@Url.Action("Contact", "Home")"><span class="glyphicon glyphicon-user"></span>Cadastro</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#suporteModal"><span class="glyphicon glyphicon-headphones"></span> Suporte</a></li>
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "Home")" class="nav-link"><i class="fas fa-home"></i> Página Inicial</a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("Contact", "Home")" class="nav-link"><i class="fas fa-user-plus"></i> Cadastro</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" data-toggle="modal" data-target="#suporteModal" class="nav-link"><i class="fas fa-headphones"></i> Suporte</a>
+                </li>
             </ul>
         </div>
+        <!-- Fim-->
     </div>
 </div>
 
