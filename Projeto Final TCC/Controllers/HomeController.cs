@@ -8,7 +8,7 @@ namespace Projeto_Final_TCC.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Principal()
         {
             return View();
         }
@@ -20,7 +20,7 @@ namespace Projeto_Final_TCC.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Cadastro()
         {
             ViewBag.Message = "Your contact page.";
 

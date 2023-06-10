@@ -39,7 +39,7 @@ namespace Projeto_Final_TCC.Controllers
                 Session["UserEmail"] = userEmail;
 
                 // Cadastro realizado com sucesso, redirecionar para a página desejada
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Principal", "Home");
             }
             catch (Exception ex)
             {

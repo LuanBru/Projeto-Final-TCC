@@ -29,7 +29,7 @@ namespace Projeto_Final_TCC.Controllers
                 Session["UserEmail"] = userEmail;
 
                 // Login bem-sucedido, redirecionar para a página desejada
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Principal", "Home");
             }
             catch (FirebaseAuthException ex)
             {

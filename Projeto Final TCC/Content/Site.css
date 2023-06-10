@@ -1,1 +1,80 @@
-﻿
+﻿/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 960px;
+}
+
+/* Estilos da Navbar */
+.navbar {
+    background-color: #333;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 20px;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.nav-link {
+    color: #fff;
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+    .nav-link:hover {
+        color: #ccc;
+    }
+
+/* Estilos do Modal */
+.modal-header {
+    background-color: #f0f0f0;
+    border-bottom: none;
+}
+
+.modal-title {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+
+#mapDiv {
+    width: 100%;
+    height: 100vh;
+    margin: 5;
+}
