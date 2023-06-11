@@ -9,7 +9,12 @@
 </head>
 
 <!--NAVBAR -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-success">
+    <div class="social-buttons">
+        <a class="btn btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
+        <a class="btn btn-social" href="#"><i class="fab fa-twitter"></i></a>
+        <a class="btn btn-social" href="#"><i class="fab fa-instagram"></i></a>
+    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,7 +32,7 @@
             @if (Session["UserEmail"] != null)
             {
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Solicitacoes", "Home")"><i class="fas fa-list-alt"></i> Solicitações</a>
+                    <a class="nav-link" href="@Url.Action("Solicitacao", "Home")"><i class="fas fa-list-alt"></i> Solicitações</a>
                 </li>
                 <li class="nav-item">
                     <span class="nav-link"><i class="fas fa-user"></i> Bem-vindo, @Session["UserEmail"]!</span>

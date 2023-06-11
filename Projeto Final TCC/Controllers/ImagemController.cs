@@ -1,13 +1,14 @@
-﻿using System.IO;
-using System.Web.Http;
-using System.Web.Http.ModelBinding;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Projeto_Final_TCC.Models;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Projeto_Final_TCC.Controllers
 {
-    public class FotosController : Controller
+    public class ImagemController : Controller
     {
         [HttpPost]
         public IActionResult Create(Fotos model)
@@ -29,7 +30,7 @@ namespace Projeto_Final_TCC.Controllers
 
                     // Salvar o objeto 'foto' no banco de dados usando o Entity Framework Core
 
-                    return RedirectToAction("Principal");
+                    return RedirectToAction("Pricipal");
                 }
             }
 

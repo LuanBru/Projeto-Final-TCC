@@ -26,5 +26,11 @@ namespace Projeto_Final_TCC.Controllers
 
             return View();
         }
+        public ActionResult Solicitacao()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }

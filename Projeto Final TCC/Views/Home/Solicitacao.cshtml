@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+@{
+    ViewBag.Title = "Solicitacao";
+}
+
+<div class="container">
+    <h1>Tela de Solicitações</h1>
+
+    <!-- Seleção da imagem pendente -->
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Imagens Pendentes</h3>
+            <div class="list-group">
+                <a href="#" class="list-group-item">Imagem 1</a>
+                <a href="#" class="list-group-item">Imagem 2</a>
+                <a href="#" class="list-group-item">Imagem 3</a>
+            </div>
+        </div>
+
+        <!-- Formulário de solicitação -->
+        <div class="col-md-8">
+            <h3>Preencha as Informações</h3>
+            <form id="solicitacaoForm" style="display: none;">
+                <div class="form-group">
+                    <label for="animalNome">Nome do Animal:</label>
+                    <input type="text" class="form-control" id="animalNome" name="animalNome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="animalEspecie">Espécie do Animal:</label>
+                    <select class="form-control" id="animalEspecie" name="animalEspecie" required>
+                        <option value="">Selecione a espécie</option>
+                        <option value="tatu">Tatu</option>
+                        <option value="preguica">Preguiça</option>
+                        <option value="tamandua">Tamanduá</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="observacao">Observação:</label>
+                    <textarea class="form-control" id="observacao" name="observacao" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success">Aceitar</button>
+                <button type="submit" class="btn btn-danger">Recusar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Manipulação da exibição do formulário ao selecionar uma imagem
+    var imageLinks = document.querySelectorAll('.list-group-item');
+    var solicitacaoForm = document.getElementById('solicitacaoForm');
+
+    imageLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+            // Exibir o formulário quando uma imagem for selecionada
+            solicitacaoForm.style.display = 'block';
+        });
+    });
+</script>
