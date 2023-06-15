@@ -15,6 +15,7 @@ namespace Projeto_Final_TCC.Controllers
     {
         public string WebApiKey = "AIzaSyCcq1uDwTFOIxaxWwronRQg9aa4JQvw_pA";
         
+
         [HttpGet]
         [Route("Cadastro/Cadastro")]
         public ActionResult Cadastro()

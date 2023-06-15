@@ -37,21 +37,24 @@
                     @Html.ValidationSummary(true)
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Nome)
-                        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Nome)
+                        <label for="nome">Nome:</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required>
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Email)
-                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Email)
+                        <label for="email">E-mail:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Senha)
-                        @Html.PasswordFor(model => model.Senha, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Senha)
+                        <label for="senha">Senha:</label>
+                        <input type="password" class="form-control" id="senha" name="senha" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="checkboxBiologo">Sou Biólogo:</label>
+                        <input type="checkbox" id="checkboxBiologo" name="checkboxBiologo">
+                        <input type="text" class="form-control" id="numeroRegistro" name="numeroRegistro" placeholder="Número de Registro" disabled>
                     </div>
 
                     <div class="form-group">
@@ -105,4 +108,44 @@
     </div>
 </body>
 
+<script>
+    var checkboxBiologo = document.getElementById('checkboxBiologo');
+    var numeroRegistroInput = document.getElementById('numeroRegistro');
+
+    checkboxBiologo.addEventListener('change', function () {
+        // Habilitar ou desabilitar o campo de número de registro com base na seleção do checkbox
+        if (this.checked) {
+            numeroRegistroInput.disabled = false;
+        } else {
+            numeroRegistroInput.disabled = true;
+        }
+    });
+
+    var cadastroForm = document.getElementById('cadastroForm');
+    cadastroForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Obter os valores dos campos de cadastro
+        var nome = document.getElementById('nome').value;
+        var email = document.getElementById('email').value;
+        var senha = document.getElementById('senha').value;
+        var biologo = checkboxBiologo.checked;
+        var numeroRegistro = biologo ? document.getElementById('numeroRegistro').value : '';
+
+        // Realizar o cadastro com Firebase aqui
+        // ...
+
+        // Exemplo de exibição das informações no console
+        console.log('Nome:', nome);
+        console.log('E-mail:', email);
+        console.log('Senha:', senha);
+        console.log('Biólogo:', biologo);
+        console.log('Número de Registro:', numeroRegistro);
+
+        // Redirecionar para a tela de solicitações se o usuário for um biólogo
+        if (biologo) {
+            window.location.href = '/solicitacoes';
+        }
+    });
+</script>
 

@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Projeto_Final_TCC.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Projeto_Final_TCC.Controllers
@@ -11,7 +7,7 @@ namespace Projeto_Final_TCC.Controllers
     public class ImagemController : Controller
     {
         [HttpPost]
-        public IActionResult Create(Fotos model)
+        public Microsoft.AspNetCore.Mvc.IActionResult Create(Fotos model)
         {
             if (ModelState.IsValid)
             {
@@ -30,11 +26,11 @@ namespace Projeto_Final_TCC.Controllers
 
                     // Salvar o objeto 'foto' no banco de dados usando o Entity Framework Core
 
-                    return RedirectToAction("Pricipal");
+                    return RedirectToAction("Principal") as Microsoft.AspNetCore.Mvc.IActionResult;
                 }
             }
 
-            return View(model);
+            return (IActionResult)View(model);
         }
     }
 }

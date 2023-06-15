@@ -1,104 +1,173 @@
 ﻿@{
     ViewBag.Title = "Principal";
 }
+<!DOCTYPE html>
 <html>
+
 <head>
-    
+    <meta charset="UTF-8">
+
+    <title>Meu Site</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #264d3f;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main {
+            padding: 20px;
+        }
+
+        .section {
+            padding: 40px;
+            color: #fff;
+        }
+
+            .section.xenarthra {
+                background-color: #5f9c77;
+            }
+
+            .section.equipe {
+                background-color: #417d5a;
+            }
+
+            .section.sobre {
+                background-color: #335e44;
+            }
+
+            .section.mapa {
+                background-color: #264d3f;
+                padding: 0;
+            }
+
+        .section-heading {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .section-column {
+            width: calc(33.33% - 20px);
+        }
+
+            .section-column img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+        #mapDiv {
+            width: 100%;
+            height: calc(100vh - 200px);
+        }
+    </style>
 </head>
 
 <body>
+    <div class="header">
+        <h1>Meu Site</h1>
+    </div>
 
     <br>
-    <div id="mapDiv" style="width: 100%; height: 100vh; margin: 5;"></div>
-    <script>
+    <br>
+    <br>
+    <section id="mapa" class="section">
+        <div class="section-heading">Mapa</div>
+        <div id="mapDiv"></div>
+    </section>
 
-        // latitude e longitude
+    <div class="main">
+        <div class="container">
+            <section id="xenarthra" class="section">
+                <div class="section-heading">Xenarthra</div>
+                <div class="section-content">
+                    <div class="section-column">
+                        <img src="~/Content/Images/preguica.png" alt="Imagem 1">
+                    </div>
+                    <div class="section-column">
+                        <p>
+                            Bem-vindo ao nosso site de catálogo de animais Xenarthra!
+                        </p>
+                        <p>
+                            Xenarthra é uma ordem de mamíferos que inclui animais fascinantes como tatus, preguiças e tamanduás.
+                            Eles são encontrados principalmente na América do Sul e Central, e são conhecidos por suas características
+                            únicas, como garras afiadas, pelos grossos e hábitos alimentares especializados.
+                        </p>
+                    </div>
+                    <div class="section-column">
+                        <img src="~/Content/Images/terra.png" alt="Imagem 2">
+                    </div>
+                </div>
+            </section>
+
+            <section id="equipe" class="section">
+                <div class="section-heading">Nossa Equipe</div>
+                <div class="section-content">
+                    <div class="section-column">
+                        <img src="~/Content/Images/Bio.png" alt="Imagem 5">
+                    </div>
+                    <div class="section-column">
+                        <p>Conheça nossa equipe de especialistas que trabalham para oferecer o melhor conteúdo para você.</p>
+                    </div>
+                    <div class="section-column">
+                        <img src="~/Content/Images/terra.png" alt="Imagem 2">
+                    </div>
+                </div>
+            </section>
+
+            <section id="sobre" class="section">
+                <div class="section-heading">Sobre Nós</div>
+                <div class="section-content">
+                    <div class="section-column">
+                        <img src="~/Content/Images/pasta.png" alt="Imagem 6">
+                    </div>
+                    <div class="section-column">
+                        <p>
+                            Nós somos a Xfauna, seja bem-vindo ao nosso site. Por aqui, você consegue encontrar catálogos de animais
+                            Xenarthra e os lugares do mundo nos quais eles podem ser encontrados. Nosso objetivo é ajudar cada vez mais
+                            o avanço da biologia através da internet!
+                        </p>
+                    </div>
+                    <div class="section-column">
+                        <img src="~/Content/Images/pasta.png" alt="Imagem 6">
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script>
         var lat = -23.55;
         var lon = -46.63;
-        // inicializa o mapa
-        map = L.map('mapDiv').setView([lat, lon], 13);
 
-        // define os recursos para exibição
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'Map data &copy; <a href="https://www.macoratti.net/">Macoratti.net</a>',
+        var map = L.map('mapDiv').setView([lat, lon], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
             maxZoom: 18,
         }).addTo(map);
 
-        // adiciona um marcador no mapa
-        marker = L.marker([lat, lon]).addTo(map);
-
-        // adiciona um popup no marcador
+        var marker = L.marker([lat, lon]).addTo(map);
         marker.bindPopup("<b>Centro</b><br />Pça da Sé<br />São Paulo").openPopup();
-
     </script>
-    <br />
-
-    <!-- Informações XERNARTHRA -->
-    <div class="jumbotron" style="background-color: black; opacity: 1.0; color: #ffffff;">
-        <div class="row">
-            <div class="col-md-8">
-                <h1>Xenarthra</h1>
-                <p>
-                    Bem-vindo ao nosso site de catálogo de animais Xenarthra!
-                </p>
-                <p>
-                    Xenarthra é uma ordem de mamíferos que inclui animais fascinantes como tatus, preguiças e tamanduás.
-                    Eles são encontrados principalmente na América do Sul e Central, e são conhecidos por suas características únicas,
-                    como garras afiadas, pelos grossos e hábitos alimentares especializados.
-                </p>
-                <p>
-                    Em nosso site, você encontrará um catálogo completo de animais Xenarthra, com informações detalhadas sobre cada espécie,
-                    incluindo sua aparência, comportamento, habitat e muito mais. Nós trabalhamos incansavelmente para fornecer informações precisas e
-                    atualizadas sobre essas criaturas incríveis, para que você possa aprender mais sobre elas e apreciá-las ainda mais.
-                </p>
-            </div>
-            <div class="col-md-4">
-                <img src="~/Content/Images/preguica.png" alt="Equipe do Site" class="img-responsive">
-            </div>
-        </div>
-    </div>
-
-    <!-- Informações EQUIPE -->
-    <div class="jumbotron" style=" opacity: 1.0;">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <img src="~/Content/Images/terra.png" alt="Equipe do Site" class="img-responsive">
-                </div>
-                <div class="col-md-8">
-                    <h1>Nossa Equipe</h1>
-                    <p>Conheça nossa equipe de especialistas que trabalham para oferecer o melhor conteúdo para você.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Informações XFAUNA -->
-    <div class="jumbotron" style="background-color: black; opacity: 1.0; color: #ffffff;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <h1>Sobre Nós</h1>
-                    <p>
-                        Nós somos a Xfauna, seja bem-vindo ao nosso site. Por aqui, é você consegue achar catálogos de animais Xenarthra e
-                        os lugares do mundo nos quais é possível de ser encontrado. Nosso objetivo é ajudar cada vez mais o avanço da biologia
-                        atrás da internet!
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <img src="~/Content/Images/pasta.png" alt="Equipe do Site" class="img-responsive">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container body-content">
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
-        </footer>
-    </div>
-
-
 </body>
+
+
 </html>
