@@ -2,36 +2,8 @@
     ViewBag.Title = "About";
 }
 
-@model Projeto_Final_TCC.Models.Usuario
-
-<form asp-action="Create" enctype="multipart/form-data">
-    <div class="form-group">
-        <label>ID_Usuario</label>
-        <input asp-for="ID_Usuario" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>ID_Animal</label>
-        <input asp-for="ID_Animal" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Longitude</label>
-        <input asp-for="Longitude" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Latitude</label>
-        <input asp-for="Latitude" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>ID_Verificado</label>
-        <input asp-for="ID_Verificado" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Imagem</label>
-        <input asp-for="Imagem" type="file" class="form-control-file" />
-    </div>
-    <div class="form-group">
-        <label>OBs</label>
-        <input asp-for="OBs" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+@using (Html.BeginForm("Upload", "Imagem", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <input type="submit" value="Enviar" />
+}

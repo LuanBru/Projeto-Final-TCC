@@ -6,151 +6,134 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <title>Meu Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xfauna - Catálogo de Animais Xenarthra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header {
-            background-color: #264d3f;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .main {
-            padding: 20px;
+        .header-container {
+            background-image: url('/Content/Images/preguica.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .section {
-            padding: 40px;
-            color: #fff;
+            padding: 50px 0;
+            background-color: #f9f9f9;
         }
 
-            .section.xenarthra {
-                background-color: #5f9c77;
-            }
-
-            .section.equipe {
-                background-color: #417d5a;
-            }
-
-            .section.sobre {
-                background-color: #335e44;
-            }
-
-            .section.mapa {
-                background-color: #264d3f;
-                padding: 0;
-            }
-
         .section-heading {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: bold;
             margin-bottom: 20px;
+            color: #333;
         }
 
         .section-content {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            align-items: center;
         }
 
-        .section-column {
-            width: calc(33.33% - 20px);
-        }
-
-            .section-column img {
-                width: 100%;
-                height: auto;
-                margin-bottom: 10px;
+            .section-content p {
+                color: #555;
             }
 
-        #mapDiv {
-            width: 100%;
-            height: calc(100vh - 200px);
+            .section-content img {
+                width: 100%;
+                max-width: 200px;
+                border-radius: 5px;
+            }
+
+        #xenarthra {
+            background-color: #f5f5f5;
+        }
+
+        #equipe {
+            background-color: #fafafa;
+        }
+
+        #sobre {
+            background-color: #f0f0f0;
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <h1>Meu Site</h1>
-    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <header class="bg-primary text-white text-center py-5" style="background-image: url('/Content/Images/PlanoFundoFloresa.jpg'); background-size: cover; background-position: center; ">
+        <div class="container">
+            <h1 class="display-4">Xfauna - Catálogo de Animais Xenarthra</h1>
+            <p class="lead">Descubra a fascinante ordem de mamíferos Xenarthra</p>
+        </div>
+    </header>
 
-    <br>
-    <br>
-    <br>
-    <section id="mapa" class="section">
-        <div class="section-heading">Mapa</div>
-        <div id="mapDiv"></div>
+    <section id="mapa" class="section py-5">
+        <div class="container">
+            <div class="section-heading text-center">Mapa</div>
+            <div id="mapDiv" style="height: 400px;"></div>
+        </div>
     </section>
 
-    <div class="main">
+    <section id="xenarthra" class="section py-5">
         <div class="container">
-            <section id="xenarthra" class="section">
-                <div class="section-heading">Xenarthra</div>
-                <div class="section-content">
-                    <div class="section-column">
-                        <img src="~/Content/Images/preguica.png" alt="Imagem 1">
-                    </div>
-                    <div class="section-column">
-                        <p>
-                            Bem-vindo ao nosso site de catálogo de animais Xenarthra!
-                        </p>
-                        <p>
-                            Xenarthra é uma ordem de mamíferos que inclui animais fascinantes como tatus, preguiças e tamanduás.
-                            Eles são encontrados principalmente na América do Sul e Central, e são conhecidos por suas características
-                            únicas, como garras afiadas, pelos grossos e hábitos alimentares especializados.
-                        </p>
-                    </div>
-                    <div class="section-column">
-                        <img src="~/Content/Images/terra.png" alt="Imagem 2">
-                    </div>
+            <div class="section-heading text-center">Xenarthra</div>
+            <div class="section-content row">
+                <div class="col-md-4">
+                    <img src="~/Content/Images/preguica.png" alt="Imagem 1" class="img-fluid">
                 </div>
-            </section>
-
-            <section id="equipe" class="section">
-                <div class="section-heading">Nossa Equipe</div>
-                <div class="section-content">
-                    <div class="section-column">
-                        <img src="~/Content/Images/Bio.png" alt="Imagem 5">
-                    </div>
-                    <div class="section-column">
-                        <p>Conheça nossa equipe de especialistas que trabalham para oferecer o melhor conteúdo para você.</p>
-                    </div>
-                    <div class="section-column">
-                        <img src="~/Content/Images/terra.png" alt="Imagem 2">
-                    </div>
+                <div class="col-md-8">
+                    <p>
+                        Bem-vindo ao nosso site de catálogo de animais Xenarthra!
+                    </p>
+                    <p>
+                        Xenarthra é uma ordem de mamíferos que inclui animais fascinantes como tatus, preguiças e tamanduás.
+                        Eles são encontrados principalmente na América do Sul e Central e são conhecidos por suas características
+                        únicas, como garras afiadas, pelos grossos e hábitos alimentares especializados.
+                    </p>
                 </div>
-            </section>
-
-            <section id="sobre" class="section">
-                <div class="section-heading">Sobre Nós</div>
-                <div class="section-content">
-                    <div class="section-column">
-                        <img src="~/Content/Images/pasta.png" alt="Imagem 6">
-                    </div>
-                    <div class="section-column">
-                        <p>
-                            Nós somos a Xfauna, seja bem-vindo ao nosso site. Por aqui, você consegue encontrar catálogos de animais
-                            Xenarthra e os lugares do mundo nos quais eles podem ser encontrados. Nosso objetivo é ajudar cada vez mais
-                            o avanço da biologia através da internet!
-                        </p>
-                    </div>
-                    <div class="section-column">
-                        <img src="~/Content/Images/pasta.png" alt="Imagem 6">
-                    </div>
-                </div>
-            </section>
-
-
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section id="equipe" class="section py-5">
+        <div class="container">
+            <div class="section-heading text-center">Nossa Equipe</div>
+            <div class="section-content row">
+                <div class="col-md-8">
+                    <p>Conheça nossa equipe de especialistas que trabalham para oferecer o melhor conteúdo para você.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="~/Content/Images/terra.png" alt="Imagem 2" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="section py-5">
+        <div class="container">
+            <div class="section-heading text-center">Sobre Nós</div>
+            <div class="section-content row">
+                <div class="col-md-4">
+                    <img src="~/Content/Images/pasta.png" alt="Imagem 6" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <p>
+                        Nós somos a Xfauna, seja bem-vindo ao nosso site. Por aqui, você consegue encontrar catálogos de animais
+                        Xenarthra e os lugares do mundo nos quais eles podem ser encontrados. Nosso objetivo é ajudar cada vez mais
+                        o avanço da biologia através da internet!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            &copy; 2023 Xfauna. Todos os direitos reservados.
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     <script>
@@ -167,6 +150,7 @@
         var marker = L.marker([lat, lon]).addTo(map);
         marker.bindPopup("<b>Centro</b><br />Pça da Sé<br />São Paulo").openPopup();
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
 </body>
 
 
